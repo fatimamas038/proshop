@@ -13,7 +13,10 @@ res.json({
    isAdmin:user.isAdmin,
    token:generateToken(user._id) 
 })
-  }else{
+
+
+  }
+  else{
 res.status(401)
 throw new Error("invalid email or password")
   }
@@ -57,13 +60,18 @@ const user=await User.create({
 
 
 if(user){
+  console.log(user);
+  
 res.status(201).json({
   _id:user._id,
   name:user.name,
   email:user.email,
   isAdmin:user.isAdmin,
   token:generateToken(user._id)  
+
+  
 })
+
 }else{
   res.status(404)
   throw new Error("invalid user address")

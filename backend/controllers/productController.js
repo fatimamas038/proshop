@@ -53,7 +53,7 @@ const createProduct=asyncHandler(async(req,res)=>{
        image:"/images/sample.jpg",
        brand:"Sample brand",
        category:"Sample Category",
-       countInStock:0,
+       countInStock:5,
        numReviews:0,
        description:"sample desc"
 

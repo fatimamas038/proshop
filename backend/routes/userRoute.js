@@ -4,6 +4,8 @@ import {protect,admin} from "../middleware/authMiddleware.js"
 
 const router=express.Router()
 
+console.log(registerUser);
+console.log(getUsers);
 
 router.route("/").post(registerUser)
 router.route("/").get(protect,admin,getUsers)
