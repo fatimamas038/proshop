@@ -11,7 +11,7 @@ import uploadRoutes from "./routes/uploadRoutes.js"
 
 
 
-dotenv.config();
+dotenv.config({ path: './../.env' });
 
 connectDB();
 const app=express()
@@ -29,7 +29,7 @@ app.use("/api/users",userRoutes)
 app.use("/api/orders",orderRoutes)
 app.use("/api/upload",uploadRoutes)
 
-
+console.log(process.env.MONGO_URI)
 app.get("/api/config/paypal",(req,res)=>
 res.send(process.env.PAYPAL_CLIENT_ID))
 

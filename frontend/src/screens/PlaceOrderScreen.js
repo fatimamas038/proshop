@@ -7,6 +7,7 @@ import {saveShippingAddress} from "../actions/cartActions"
 import CheckoutSteps from "../components/CheckoutSteps"
 import {createOrder,getOrderDetails} from "../actions/orderActions"
 import {ORDER_CREATE_RESET} from "../constants/orderCons"
+import {addToCart, removeFromCart} from "../actions/cartActions"
 
 const PlaceOrderScreen = ({history}) => {
     const dispatch=useDispatch()
@@ -32,7 +33,11 @@ const PlaceOrderScreen = ({history}) => {
       totalPrice:cart.totalPrice,
     
     }))
+    cart.cartItems.map(item=>dispatch(removeFromCart(item.product)))
+
     }
+
+    
 
    useEffect(()=>{
        

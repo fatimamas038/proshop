@@ -6,7 +6,7 @@ import asyncHandler from "express-async-handler"
 //access private
 const addOrderItems=asyncHandler(async(req,res)=>{
 const {orderItems,shippingAddress,paymentMethod
-    ,itemsPrice,taxPrice,totalPrice}=req.body
+    ,itemsPrice,taxPrice,totalPrice,shippingPrice}=req.body
 
     if(orderItems && orderItems.length===0){
         res.status(400)
@@ -20,9 +20,11 @@ const {orderItems,shippingAddress,paymentMethod
         paymentMethod,
         itemsPrice,
         taxPrice,
-        totalPrice 
+        totalPrice ,
+        shippingPrice
     })
-    const createOrder=await order.save()    
+    const createOrder=await order.save() 
+    console.log(createOrder)   
     res.status(201).json(createOrder)
     }
 })
